@@ -7,7 +7,7 @@ body {
 .menu {
     position: fixed;
     width: 100%;
-    background: rgba(0, 0, 0, 0.4);
+    background: #4f4f4f;
     padding: 0 15px;
     font-size: 22px;
     box-sizing: border-box;

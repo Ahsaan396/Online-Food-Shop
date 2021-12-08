@@ -4,16 +4,17 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
+
+
 <!-- Bootstrap CSS -->
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
 <title>Online Food Shop</title>
-<link rel="stylesheet" href="{{asset('styles/stylesheet.css')}}">
-<link rel="stylesheet" href="{{asset('styles/style.css')}}">
+ <link rel="stylesheet" href="{{asset('styles/stylesheet.css')}}">
+{{--<link rel="stylesheet" href="{{asset('styles/style.css')}}"> --}}
 </head>
-<body>
-
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<body class="bg bg-light">
+	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
 		<div class="container-fluid">
 		  <a class="navbar-brand" href="{{route('index')}}">Online Food Shop</a>
 		  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -53,11 +54,47 @@
 		</div>
 	    </nav>
 
-	<div id="content">
+{{-- <div id="content">
+{{-- <img  src="{{asset('img/back.jpg')}}" alt=""> -
+</div> --}}
 
-		<img  src="{{asset('img/back.jpg')}}" alt="">
-	</div>
-
+<div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-indicators">
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+  </div>
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="https://source.unsplash.com/2400x700/?fastfood,cava" class="d-block w-100" alt="...">
+    </div>
+	<div class="carousel-item">
+      <img src="https://source.unsplash.com/2400x700/?burger,kfc" class="d-block w-100" alt="...">
+    </div>
+	<div class="carousel-item">
+      <img src="https://source.unsplash.com/2400x700/?chickenwings" class="d-block w-100" alt="...">
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat accusamus incidunt alias at saepe. Qui commodi ut quisquam! At voluptatibus totam quia repellat, id exercitationem assumenda explicabo quidem nam perspiciatis, hic dolorem perferendis animi aliquid? Harum quas nam consequatur recusandae possimus magni, officiis iure corporis repellendus repudiandae unde quae, a fugit impedit? Explicabo vitae veritatis voluptatum cupiditate asperiores eius facere at quos fugit saepe dicta commodi sapiente labore porro voluptatibus eum molestias, ratione ab! Laudantium asperiores facilis, veniam odit inventore corporis quod, quidem quas in animi, voluptas velit porro recusandae nobis consequuntur laborum nesciunt magnam molestias reiciendis praesentium aliquid quaerat?</p>
+<footer class="py-3 my-4 bg bg-dark">
+    <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+      <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Home</a></li>
+      <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Features</a></li>
+      <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Pricing</a></li>
+      <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">FAQs</a></li>
+      <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">About</a></li>
+    </ul>
+    <p class="text-center text-muted">© 2021 Company, Inc</p>
+  </footer>
 <!-- Optional JavaScript; choose one of the two! -->
 
     <!-- Option 1: Bootstrap Bundle with Popper -->
