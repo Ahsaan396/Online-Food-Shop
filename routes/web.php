@@ -1,7 +1,8 @@
 <?php
-use App\Http\Controllers\HomeController;
-use Illuminate\Support\Facades\Route;
 
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
+// use Auth;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -16,8 +17,16 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
 Route::get('/home',[HomeController::class,'index'])->name('index');
 Route::get('/menu',[HomeController::class,'menu'])->name('menu');
-Route::get('/contact',[HomeController::class,'contact'])->name('contact');
-Route::get('/about',[HomeController::class,'about'])->name('about');
-Route::get('/review',[HomeController::class,'review'])->name('review');
+Route::get('/user_profile',[HomeController::class,'user_profile'])->name('user_profile');
+Route::get('/user_home',[HomeController::class,'user_home'])->name('user_home');
+Route::get('/register',[HomeController::class,'register'])->name('register');
+Route::get('/logout',[HomeController::class,'logout'])->name('logout');
+
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth'])->name('dashboard');
+
+require __DIR__.'/auth.php';

@@ -1,115 +1,38 @@
 <html>
 <head>
-
+<meta charset="utf-8">
 <title>Online Food Shop</title>
-<style>
-    *{
-    padding: 0;
-    margin: 0;
-}
-
-a{
-    text-decoration: none;
-}
-ul{
-    list-style: none;
-}
-.header{
-    width: 100%;
-    height: 10%;
-    background-color: #2d3436;
-}
-
-.header ul{
-    display: flex;
-    justify-content: center;
-}
-
-.header li{
-    padding: 20px 60px;
-}
-
-.header a{
-    color: white;
-    font-size: 20px;
-    font-weight: 700;
-    font-family: monospace;
-    transition: .3s;
-}
-
-.header a:hover{
-    color: #27ae60;
-    
-}
-
-.cover{
-    background: url(./images/background.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
-    height: 100vh;
-}
-
-.overlay{
-    height: 100vh;
-    background-color: rgba(0, 0, 0, 0.7);
-}
-
-.text{
-    text-align: center;
-}
-
-.text h1{
-    text-align: center;
-    color: white;
-    padding-top: 200px;
-    padding-bottom: 10px;
-    font-size: 50px;
-    text-transform: uppercase;
-    font-family: monospace;
-    cursor: pointer;
-}
-
-.text p{
-    color: white;
-    border-top: 1px solid white;
-    display: inline-block;
-    font-size: 15px;
-    text-transform: uppercase;
-    padding-right: 30px;
-    padding-left: 30px;
-    padding-top: 5px;
-}
-</style>
+<link rel="stylesheet" href="{{asset('styles/stylesheet.css')}}">
+<link rel="stylesheet" href="{{asset('styles/style.css')}}">
 </head>
-
 <body>
-
-<div class="header">
-	<div class="menu">
-	
-	<ul>
-	<li><a href="{{route('index')}}">Home</a></li>
-	<li><a href="{{route('menu')}}">Menu</a></li>
-	<li><a href="contact.html">Contact</a></li>
-	<li><a href="about.html">About</a></li>
-	</ul>
-	
-	</div>
+<div class="menu">
+	<nav>
+        
+		<ul>
+            <li><a href="{{route('index')}}" class="brand">Home</a></li>
+			<li><a href="{{route('menu')}}">Menu</a></li>
+			<li><a href="#">About</a></li>
+			<li><a href="{{route('register')}}">Signup</a></li>
+			@if(Auth::check())
+			<li><a href="{{route('logout')}}">Logout</a>
+			</li>
+			@else
+			<li><a href="{{route('login')}}">Login</a>
+				{{-- <ul>
+					<li><a href="admin.php">Admin</a></li>
+					<li><a href="user.php">User</a></li>
+				</ul> --}}
+			</li>
+			@endif
+		</ul>
+	</nav>
 </div>
+<div id="header">Online Food Shop</div>
+<div id="content">
 
-<div class="cover">
-	<div class="overlay">
-		<div class="text">
-			<h1>online food shop</h1>
-			<p>the best service in the city</p>
-		</div>
-	</div>
-	
+<img src="{{asset('img/back.jpg')}}" alt="">
 </div>
-
 
 </body>
-</head>
 </html>

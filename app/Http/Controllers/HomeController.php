@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\DB;
+use App\Models\User;
 class HomeController extends Controller
 {
     /**
@@ -26,17 +28,22 @@ class HomeController extends Controller
         return view('menu');
     }
     
-     public function contact()
+    public function user_profile()
     {
-        return view('contact');
+        return view('user_profile');
     }
-     public function about()
+    public function user_home()
     {
-        return view('about');
+        return view('user_home');
     }
-     public function review()
+    public function register()
     {
-        return view('review');
+        return view('register');
+    }
+    public function logout()
+    {
+        auth()->logout();
+        return redirect()->route('index');
     }
     /**
      * Store a newly created resource in storage.
