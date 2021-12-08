@@ -1,17 +1,38 @@
-<x-app-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Dashboard') }}
-        </h2>
-    </x-slot>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Online Food Shop</title>
+<link rel="stylesheet" href="{{asset('styles/stylesheet.css')}}">
+<link rel="stylesheet" href="{{asset('styles/style.css')}}">
+</head>
+<body>
+<div class="menu">
+	<nav>
+        
+		<ul>
+            <li><a href="{{route('index')}}" class="brand">Home</a></li>
+			<li><a href="{{route('menu')}}">Menu</a></li>
+			<li><a href="#">About</a></li>
+			<li><a href="{{route('register')}}">Signup</a></li>
+			@if(Auth::check())
+			<li><a href="{{route('logout')}}">Logout</a>
+			</li>
+			@else
+			<li><a href="{{route('login')}}">Login</a>
+				{{-- <ul>
+					<li><a href="admin.php">Admin</a></li>
+					<li><a href="user.php">User</a></li>
+				</ul> --}}
+			</li>
+			@endif
+		</ul>
+	</nav>
+</div>
+<div id="header">Online Food Shop</div>
+<div id="content">
 
-    <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="p-6 bg-white border-b border-gray-200">
-                    You're logged in!
-                </div>
-            </div>
-        </div>
-    </div>
-</x-app-layout>
+<img src="{{asset('img/back.jpg')}}" alt="">
+</div>
+
+</body>
+</html>

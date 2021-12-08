@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\MenuController;
+
 // use Auth;
 /*
 |--------------------------------------------------------------------------
@@ -15,10 +17,10 @@ use App\Http\Controllers\HomeController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('index');
 });
 
-Route::get('/home',[HomeController::class,'index'])->name('index');
+Route::get('/',[HomeController::class,'index'])->name('index');
 Route::get('/menu',[HomeController::class,'menu'])->name('menu');
 Route::get('/user_profile',[HomeController::class,'user_profile'])->name('user_profile');
 Route::get('/user_home',[HomeController::class,'user_home'])->name('user_home');

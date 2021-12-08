@@ -23,9 +23,11 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function menu()
-    {
-        return view('menu');
+    
+    public function menu(){
+        $data = DB::table('menu')->get();
+
+        return view('menu', ['data' => $data]);
     }
     
     public function user_profile()

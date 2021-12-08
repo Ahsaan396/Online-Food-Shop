@@ -46,64 +46,13 @@ class AuthenticatedSessionController extends Controller
         if (Auth::attempt($credentials)) {
        
             $request->session()->regenerate();
-            return redirect('/home')->with('message','You are successfully logged in');
+            return redirect('/')->with('message','You are successfully logged in');
         }
         else{
             
             return redirect()->back()->with('email', 'Credentials not match');
         }
         
-        // $user_info = User::where(function ($query) use ($request){
-        //     $query->where(['email' => $request->input('email')]);
-        // })->first();
-        // if($user_info){
-        //     if(Hash::check($request->input('password'),$user_info->password)){
-        //         $credential=$request->only('email','password');
-        //         $request->session()->put('id',$user_info->id);
-        //         $request->session()->put('name',$user_info->name);
-        //         $request->session()->put('usertype',$user_info->usertype);
-              
-        //         return redirect('dashboard');
-        //       }
-            //   else{
-            //       dd("hello");
-            //     // return view('auth/login')->with('msg','credentials not matching');
-            //        return  Redirect::back()->withErrors('Credintials not matching');
-            //     
-                
-
-            // }
-        //}
-    
-        // $credentials = $request->getCredentials();
-        // $user = Auth::getProvider()->retrieveByCredentials($credentials);
-
-        // Auth::login($user);
-
-        // return $this->authenticated($request, $user);
-        
-        // if($userInfo){
-        //     if(Hash::check($request->password,$userInfo->password)){
-        //         $credential = $request->only('email','password');
-        //         $user = Auth()->Login($credential);
-        //         return response()->json([
-        //             'success' => true,
-        //             'data'=> $this->guard()->user(),
-        //             'message' => 'Successfully logged in.',
-        //         ],200);
-        //     }else{
-        //         return response()->json([
-        //             'success' => false,
-        //             'message' => 'Invalid username or Password',
-        //         ]);
-        //     }
-        // }
-        // return $user;
-        // $request->authenticate();
-
-        // $request->session()->regenerate();
-
-        // return redirect()->intended(RouteServiceProvider::HOME);
     }
 
     /**
