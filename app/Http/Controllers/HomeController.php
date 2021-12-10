@@ -47,6 +47,22 @@ class HomeController extends Controller
         auth()->logout();
         return redirect()->route('index');
     }
+    public function order()
+    {
+        return view('order');
+    }
+    public function contact()
+    {
+        return view('contact');
+    }
+    public function about()
+    {
+        return view('about');
+    }
+     public function msg()
+    {
+        return view('msg');
+    }
     /**
      * Store a newly created resource in storage.
      *

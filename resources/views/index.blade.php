@@ -11,7 +11,8 @@
 
 <title>Online Food Shop</title>
  <link rel="stylesheet" href="{{asset('styles/stylesheet.css')}}">
-{{--<link rel="stylesheet" href="{{asset('styles/style.css')}}"> --}}
+ <link rel="stylesheet" href="{{asset('styles/style1.css')}}">
+<link rel="stylesheet" href="{{asset('styles/style.css')}}"> 
 </head>
 <body class="bg bg-light">
 	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -29,10 +30,13 @@
 			<li class="nav-item">
 				<a class="nav-link" href="{{route('menu')}}">Menu</a>
 			    </li>
-			@if(Auth::check())
-			<li class="nav-item">
-			  <a class="nav-link" href="{{route('user_profile')}}">Profile</a>
+          <li class="nav-item">
+			  <a class="nav-link" href="{{route('contact')}}">Contact</a>
 			</li>
+      <li class="nav-item">
+			  <a class="nav-link" href="{{route('about')}}">About Us</a>
+			</li>
+			@if(Auth::check())
 	
 			<li class="nav-item">
 			  <a class="nav-link" href="{{route('logout')}}">Logout</a>
@@ -84,16 +88,37 @@
     <span class="visually-hidden">Next</span>
   </button>
 </div>
-<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat accusamus incidunt alias at saepe. Qui commodi ut quisquam! At voluptatibus totam quia repellat, id exercitationem assumenda explicabo quidem nam perspiciatis, hic dolorem perferendis animi aliquid? Harum quas nam consequatur recusandae possimus magni, officiis iure corporis repellendus repudiandae unde quae, a fugit impedit? Explicabo vitae veritatis voluptatum cupiditate asperiores eius facere at quos fugit saepe dicta commodi sapiente labore porro voluptatibus eum molestias, ratione ab! Laudantium asperiores facilis, veniam odit inventore corporis quod, quidem quas in animi, voluptas velit porro recusandae nobis consequuntur laborum nesciunt magnam molestias reiciendis praesentium aliquid quaerat?</p>
+
+<section id="golf">
+            <div class="container">
+            <h1 class="text-center">Welcome To Online Food Shop</h1>
+            <br><br>
+                <div class="d-flex justify-content-start">
+                    <div class="menu-image">
+                        <img src="{{asset('img/back.jpg')}}" class="img-fluid" alt="menu image">
+                    </div>
+                    <div class="menu-text">
+                        <h6>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam vel maxime aperiam laboriosam mollitia optio asperiores nostrum assumenda odio, atque quibusdam praesentium dicta fugiat quae, molestias consequuntur quo eligendi quisquam, dolorem obcaecati perferendis distinctio soluta. Laboriosam doloremque dolorum voluptas deserunt pariatur accusamus autem? Ipsum, voluptate quas? Sed ad voluptatem, sint fuga optio provident voluptate. Illum deserunt cum ad eligendi reprehenderit voluptates doloremque ullam blanditiis beatae! Cupiditate alias officia odit impedit!</h6>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </section>
+
+
+        
+  
+    
+
 <footer class="py-3 my-4 bg bg-dark">
     <ul class="nav justify-content-center border-bottom pb-3 mb-3">
-      <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Home</a></li>
-      <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Features</a></li>
-      <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Pricing</a></li>
-      <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">FAQs</a></li>
-      <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">About</a></li>
+      <li class="nav-item"><a href="#" class="nav-link px-2 text-muted"><p class="text-light">Home</p></a></li>
+      <li class="nav-item"><a href="#" class="nav-link px-2 text-muted"><p class="text-light">Features</p></a></li>
+      <li class="nav-item"><a href="#" class="nav-link px-2 text-muted"><p class="text-light">Pricing</p></a></li>
+      <li class="nav-item"><a href="#" class="nav-link px-2 text-muted"><p class="text-light">FAQs</p></a></li>
+      <li class="nav-item"><a href="#" class="nav-link px-2 text-muted"><p class="text-light">About</p></a></li>
     </ul>
-    <p class="text-center text-muted">© 2021 Company, Inc</p>
+    <p class="text-center text-muted"><p class="text-light text-center">&copy; Copyright by-Sultana and Shusmita</p></p>
   </footer>
 <!-- Optional JavaScript; choose one of the two! -->
 

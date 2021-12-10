@@ -1,0 +1,46 @@
+.menu-container{
+  width: 100%;
+}
+
+
+.menu-content{
+   margin-top: 1.5rem;
+   width: 50%;
+}
+
+.menu-text{
+    padding:35px;
+    width: 50%;
+    text-align: justify;
+}
+
+p.menu-name{
+    font-size: 1.3rem;
+    text-align: left;
+    text-transform: uppercase;
+    color: #191919;
+    font-weight: bold;
+
+}
+
+p.menu-price{
+    margin-left: 9rem;
+    font-weight: normal;
+    color: #191919;
+    font-size: 1.3rem;
+}
+.menu-image{
+    width: 700px;
+}
+.image-section{
+    width:40%; 
+}
+.conatiner1{
+    width: 100%;
+}
+.image-section img{
+     width: 500px;
+}
+.text-section{
+    width:40%; 
+}

@@ -28,11 +28,14 @@
 			<li class="nav-item">
 				<a class="nav-link" href="{{route('menu')}}">Menu</a>
 			    </li>			    
-
-			@if(Auth::check())
-			<li class="nav-item">
-			  <a class="nav-link" href="{{route('user_profile')}}">Profile</a>
+            <li class="nav-item">
+				<a class="nav-link" href="{{route('contact')}}">Contact</a>
+			    </li>	
+				<li class="nav-item">
+			  <a class="nav-link" href="{{route('about')}}">About Us</a>
 			</li>
+			@if(Auth::check())
+			
 	
 			<li class="nav-item">
 			  <a class="nav-link" href="{{route('logout')}}">Logout</a>

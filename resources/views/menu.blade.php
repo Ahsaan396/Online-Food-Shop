@@ -10,7 +10,7 @@
 
 <title>Menu</title>
 <link rel="stylesheet" href="{{asset('styles/stylesheet.css')}}">
-<link rel="stylesheet" href="{{asset('styles/style.css')}}">
+<link rel="stylesheet" href="{{asset('styles/style.css')}}"> 
 {{-- <link rel="stylesheet" type="text/css" href="{{asset('styles/stylesheet.css')}}">	 --}}
 
 </head>
@@ -32,10 +32,15 @@
 		<li class="nav-item">
 			<a class="nav-link" href="{{route('menu')}}">Menu</a>
 		    </li>
-
+        <li class="nav-item">
+			  <a class="nav-link" href="{{route('contact')}}">Contact</a>
+			</li>
+      <li class="nav-item">
+			  <a class="nav-link" href="{{route('about')}}">About Us</a>
+			</li>
 		@if(Auth::check())
 		<li class="nav-item">
-		  <a class="nav-link" href="{{route('user_profile')}}">Profile</a>
+		  <a class="nav-link" href="{{route('contact')}}">Contact</a>
 		</li>
 
 		<li class="nav-item">
@@ -47,9 +52,9 @@
 			<a class="nav-link" href="{{route('login')}}">Login</a>
 		    </li>
 
-		    <li class="nav-item">
+		    {{-- <li class="nav-item">
 			<a class="nav-link" href="{{route('register')}}">Signup</a>
-		    </li>
+		    </li> --}}
 		@endif
 
 	    </ul>
@@ -57,19 +62,38 @@
 	  </div>
 	</div>
     </nav>
+	@if(Auth::check())
+<button type="button" class="btn btn-success"><a href="{{route('order')}}">Place Order</a></button>
+@else 
+<button type="button" class="btn btn-success" onclick="msg()">Place Order</button>
 
-
+@endif
 <div class="container my-5">
 	<div class="row">
 
 	@foreach ($data as $key => $item)
 	<div class="col-md-4 my-2">
 	<div class="card" style="width: 18rem;">
-		<img src="{{asset('img/back.jpg')}}" class="card-img-top" alt="...">
+		<img src={{$item->picture}} class="card-img-top" alt="...">
 		<div class="card-body bg bg-dark">
 		  <h5 class="card-title text-light">{{$item->product_name}}</h5>
 		  <p class="card-text text-center"><h5 class="text-light ">{{$item->price}}</h5></p>
-		  <button class="btn btn-primary">Order</button>
+		  @if(Auth::check())
+		  <p>
+		  <button class="btn btn-primary" onclick="addQty({{ $item->id }},{{ json_encode($item) }})">+</button>
+		  <span style="color:white" id="qty{{ $item->id }}"> 0 </span>
+		  <button class="btn btn-primary" onclick="deductQty({{ $item->id }},{{ json_encode($item) }})">-</button>
+		  
+		  </p>
+		  @else 
+		  <p>
+		  <button class="btn btn-primary" onclick="msg()">+</button>
+		  <span style="color:white" id="qty{{ $item->id }}"> 0 </span>
+		  <button class="btn btn-primary" onclick="msg()">-</button>
+		  </p>
+			  
+		  @endif
+
 		</div>
 	 </div>
 	 </div>
@@ -78,6 +102,16 @@
 </div>
 
 </div>
+<footer class="py-3 my-4 bg bg-dark">
+    <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+      <li class="nav-item"><a href="#" class="nav-link px-2 text-muted"><p class="text-light">Home</p></a></li>
+      <li class="nav-item"><a href="#" class="nav-link px-2 text-muted"><p class="text-light">Features</p></a></li>
+      <li class="nav-item"><a href="#" class="nav-link px-2 text-muted"><p class="text-light">Pricing</p></a></li>
+      <li class="nav-item"><a href="#" class="nav-link px-2 text-muted"><p class="text-light">FAQs</p></a></li>
+      <li class="nav-item"><a href="#" class="nav-link px-2 text-muted"><p class="text-light">About</p></a></li>
+    </ul>
+    <p class="text-center text-muted"><p class="text-light text-center">&copy; Copyright by-Sultana and Shusmita</p></p>
+  </footer>
 
 <!-- Optional JavaScript; choose one of the two! -->
 
@@ -89,5 +123,72 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
     -->
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<script>
+	$(document).ready(function(){
+		var basicCart = sessionStorage.getItem('basicCart');
+
+		if(basicCart){
+		var products = JSON.parse(basicCart);
+		products.map((value, index, array) => {
+		$('#qty'+value.id).text(value.qty);
+				
+		});
+		}
+	})
+	function addQty(id,product){
+		var previousQty =  $('#qty'+id).text();
+		var newQty = parseFloat(previousQty)+1;
+		$('#qty'+id).text(newQty);
+		storeInsession(product,newQty)
+	}
+
+	function deductQty(id,product){
+		var previousQty =  $('#qty'+id).text();
+		var newQty = parseFloat(previousQty)-1;
+		$('#qty'+id).text(newQty);
+		storeInsession(product,newQty)
+
+	}
+
+	function msg(){
+    alert('Please login first');
+	}
+
+
+
+
+	function storeInsession(product,newQty){
+		var basicCart = sessionStorage.getItem('basicCart');
+
+		var data = {
+			'id':product.id,
+			'product_name':product.product_name,
+			'price':product.price,
+			'qty':newQty
+		};
+
+
+		if(basicCart){
+			var products = JSON.parse(basicCart);
+			let isExist = false;
+			products.map((value, index, array) => {
+					//check is this product exist in session
+				if(product.id == value.id){
+					//update only qty
+					products[index].qty = newQty;
+					isExist = true;
+				}
+			});
+			if(!isExist){
+				products.push(data);
+			}
+			sessionStorage.setItem('basicCart',JSON.stringify(products));
+		}else{
+			sessionStorage.setItem('basicCart',JSON.stringify([data]));
+		}
+	}
+</script>
+
 </body>
 </html>

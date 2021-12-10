@@ -26,7 +26,10 @@ Route::get('/user_profile',[HomeController::class,'user_profile'])->name('user_p
 Route::get('/user_home',[HomeController::class,'user_home'])->name('user_home');
 Route::get('/register',[HomeController::class,'register'])->name('register');
 Route::get('/logout',[HomeController::class,'logout'])->name('logout');
-
+Route::get('/order',[HomeController::class,'order'])->name('order');
+Route::get('/contact',[HomeController::class,'contact'])->name('contact');
+Route::get('/about',[HomeController::class,'about'])->name('about');
+Route::get('/msg',[HomeController::class,'msg'])->name('msg');
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
