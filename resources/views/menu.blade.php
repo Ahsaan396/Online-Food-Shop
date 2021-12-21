@@ -80,9 +80,10 @@
 		  <p class="card-text text-center"><h5 class="text-light ">{{$item->price}}</h5></p>
 		  @if(Auth::check())
 		  <p>
-		  <button class="btn btn-primary" onclick="addQty({{ $item->id }},{{ json_encode($item) }})">+</button>
+		  <button class="btn btn-success" onclick="addQty({{ $item->id }},{{ json_encode($item) }})">+</button>
 		  <span style="color:white" id="qty{{ $item->id }}"> 0 </span>
-		  <button class="btn btn-primary" onclick="deductQty({{ $item->id }},{{ json_encode($item) }})">-</button>
+		  <button class="btn btn-warning"><a style="color:black" href={{route('review',$item->id)}}">Review</a></button>
+		  <button class="btn btn-danger" onclick="deductQty({{ $item->id }},{{ json_encode($item) }})">-</button>
 		  
 		  </p>
 		  @else 

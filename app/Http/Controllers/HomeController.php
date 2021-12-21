@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\review;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
@@ -63,6 +63,25 @@ class HomeController extends Controller
     {
         return view('msg');
     }
+    public function review($id)
+    {
+       
+        $get_review=DB::table('menu')->where('id',$id)->select('product_name')->get();
+        
+        return view('review',['data'=>$get_review]);
+    }
+    public function storeReview(Request $request)
+    {
+        // $this->validate($request,[
+        //     'review'=>'required'
+        // ]);
+        $post=new review;
+        $post->review=$request->input('review');
+        $post->save();
+        return redirect('/menu')->with('success','Review Submitted');
+        //return 123;
+    }
+
     /**
      * Store a newly created resource in storage.
      *

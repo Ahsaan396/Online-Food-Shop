@@ -1,31 +1,30 @@
 body {
-    margin: 0px;
-    border: 0px;
-    background-color: #4f4f4f;
+  margin: 0px;
+  border: 0px;
+  background-color: #4f4f4f;
 }
 
 .menu {
-    position: fixed;
-    width: 100%;
-    background: #4f4f4f;
-    padding: 0 15px;
-    font-size: 22px;
-    box-sizing: border-box;
-    border-bottom: 1px solid rgba(0, 0, 0, 0);
+  position: fixed;
+  width: 100%;
+  background: #4f4f4f;
+  padding: 0 15px;
+  font-size: 22px;
+  box-sizing: border-box;
+  border-bottom: 1px solid rgba(0, 0, 0, 0);
 }
 
 .menu img {
-    float: left;
-    padding: 5px;
-    width: 50px;
-    height: 50px;
+  float: left;
+  padding: 5px;
+  width: 50px;
+  height: 50px;
 }
 
 /* nav ul li a:hover {
     background: #ff8642;
     color: #360000;
 } */
-
 
 /* nav {
     position: relative;
@@ -63,7 +62,6 @@ nav ul li ul {
     transform: translatey(40px);
 } */
 
-
 /* nav ul li:hover ul {
     opacity: 1;
     visibility: visible;
@@ -75,130 +73,130 @@ nav ul li ul li a {
 } */
 
 #Login {
-    border: 5px solid #414347;
-    border-radius: 20px;
-    background: linear-gradient(to bottom right, #6a5b5b, #e4e4e4);
-    text-align: center;
-    height: 300px;
-    width: 400px;
-    margin-left: 390px;
-    padding: 0 0 0 20px;
+  border: 5px solid #414347;
+  border-radius: 20px;
+  background: linear-gradient(to bottom right, #6a5b5b, #e4e4e4);
+  text-align: center;
+  height: 300px;
+  width: 400px;
+  margin-left: 390px;
+  padding: 0 0 0 20px;
 }
 
 button {
-    float: right;
-    color: #474747;
-    border-radius: 15px;
-    padding: 10px;
-    margin: 40px 30px 0 0;
-    font-style: italic;
-    font-weight: bold;
+  float: right;
+  color: #474747;
+  border-radius: 15px;
+  padding: 10px;
+  margin: 40px 30px 0 0;
+  font-style: italic;
+  font-weight: bold;
 }
 
 #butt {
-    float: left;
-    padding: 0 0 0 200px;
+  float: left;
+  padding: 0 0 0 200px;
 }
 
 #content {
-    min-height: 100vh;
-    width: 100%;
-    font-size: 40px;
-    float: left;
+  min-height: 100vh;
+  width: 100%;
+  font-size: 40px;
+  float: left;
 }
 
 #content img {
-    height: 100vh;
-    width: 100%;
+  height: 100vh;
+  width: 100%;
 }
 
 #footer {
-    background-color: #2c4fcc;
-    padding: 5px;
-    clear: both;
-    width: 100%;
-    font-size: 32px;
-    color: white;
-    text-align: left;
-    white-space: normal;
-    margin-bottom: 0;
+  background-color: #2c4fcc;
+  padding: 5px;
+  clear: both;
+  width: 100%;
+  font-size: 32px;
+  color: white;
+  text-align: left;
+  white-space: normal;
+  margin-bottom: 0;
 }
 
 #header {
-    text-align: left;
-    font-size: 50px;
-    color: white;
+  text-align: left;
+  font-size: 50px;
+  color: white;
 }
 
 a {
-    color: white;
+  color: white;
 }
 
 body.loggedin {
-    background-color: #f3f4f7;
+  background-color: #f3f4f7;
 }
 
 .content {
-    width: 1000px;
-    margin: 0 auto;
+  width: 1000px;
+  margin: 0 auto;
 }
 
 .content h2 {
-    margin: 0;
-    padding: 25px 0;
-    font-size: 22px;
-    border-bottom: 1px solid #e0e0e3;
-    color: #4a536e;
+  margin: 0;
+  padding: 25px 0;
+  font-size: 22px;
+  border-bottom: 1px solid #e0e0e3;
+  color: #4a536e;
 }
 
-.content>p,
-.content>div {
-    box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.1);
-    margin: 25px 0;
-    padding: 25px;
-    background-color: #bebebe;
+.content > p,
+.content > div {
+  box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.1);
+  margin: 25px 0;
+  padding: 25px;
+  background-color: #bebebe;
 }
 
-.content>p table td,
-.content>div table td {
-    padding: 5px;
+.content > p table td,
+.content > div table td {
+  padding: 5px;
 }
 
-.content>p table td:first-child,
-.content>div table td:first-child {
-    font-weight: bold;
-    color: #4a536e;
-    padding-right: 15px;
+.content > p table td:first-child,
+.content > div table td:first-child {
+  font-weight: bold;
+  color: #4a536e;
+  padding-right: 15px;
 }
 
-.content>div p {
-    padding: 5px;
-    margin: 0 0 10px 0;
+.content > div p {
+  padding: 5px;
+  margin: 0 0 10px 0;
 }
 
 .menutable {
-    border-collapse: collapse;
-    margin: 20px 0 20px 200px;
-    width: 600px;
-    color: Black;
-    font-size: 18px;
-    text-align: left;
+  border-collapse: collapse;
+  margin: 20px 0 20px 200px;
+  width: 600px;
+  color: Black;
+  font-size: 18px;
+  text-align: left;
 }
 
 .menutable th {
-    background-color: #00d196;
-    color: Black;
+  background-color: #00d196;
+  color: Black;
 }
 
 .menutable tr:nth-child(even) {
-    background-color: #36a1ff;
+  background-color: #36a1ff;
 }
 
 .menutable tr:nth-child(odd) {
-    background-color: #41657d;
+  background-color: #41657d;
 }
 
 h2 {
-    color: white;
-    padding-left: 10px;
+  color: white;
+  padding-left: 10px;
 }
