@@ -63,20 +63,32 @@
 </div> --}}
 
 <div class="container">
-    @foreach ($data as $item)
+    @foreach ($gdata as $item)
         <h1>{{$item->product_name}}</h1>
     @endforeach
-    <form  action="{{route('storeReview')}}" method="POST" >
+    <form  action="{{route('storeReview', $id)}}" method="POST" >
         @csrf
   <div class="form-group">
   <label for="exampleFormControlTextarea1" class="form-label">Share your opinion please!!</label>
-  <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+  <textarea class="form-control" id="exampleFormControlTextarea1" name="txt" rows="3"></textarea>
 </div>
-    <button type="submit" class="btn btn-success">Submit</button>
+@if(Auth::check())
+    <button type="submit" class="btn btn-success" >Submit</button>
+
+    @else
+    <button type = "button" class="btn btn-success" onclick="msg()" >Submit</button>
+    @endif
 </form>
 </div>
+
 <div class="container">
     
+	@foreach ($data as $key => $item)
+
+       <h5>{{$key + 1}}. {{$item->name}}</h5>
+	  <p>{{$item->review}}</p>
+    @endforeach
+
 </div>
 
 
@@ -100,6 +112,69 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
     -->
+
+    <script>
+	$(document).ready(function(){
+		var basicCart = sessionStorage.getItem('basicCart');
+
+		if(basicCart){
+		var products = JSON.parse(basicCart);
+		products.map((value, index, array) => {
+		$('#qty'+value.id).text(value.qty);
+				
+		});
+		}
+	})
+	function addQty(id,product){
+		var previousQty =  $('#qty'+id).text();
+		var newQty = parseFloat(previousQty)+1;
+		$('#qty'+id).text(newQty);
+		storeInsession(product,newQty)
+	}
+
+	function deductQty(id,product){
+		var previousQty =  $('#qty'+id).text();
+		var newQty = parseFloat(previousQty)-1;
+		$('#qty'+id).text(newQty);
+		storeInsession(product,newQty)
+
+	}
+
+	function msg(){
+    alert('Please login first');
+	}
+
+	function storeInsession(product,newQty){
+		var basicCart = sessionStorage.getItem('basicCart');
+
+		var data = {
+			'id':product.id,
+			'product_name':product.product_name,
+			'price':product.price,
+			'qty':newQty
+		};
+
+
+		if(basicCart){
+			var products = JSON.parse(basicCart);
+			let isExist = false;
+			products.map((value, index, array) => {
+					//check is this product exist in session
+				if(product.id == value.id){
+					//update only qty
+					products[index].qty = newQty;
+					isExist = true;
+				}
+			});
+			if(!isExist){
+				products.push(data);
+			}
+			sessionStorage.setItem('basicCart',JSON.stringify(products));
+		}else{
+			sessionStorage.setItem('basicCart',JSON.stringify([data]));
+		}
+	}
+</script>
 
 </body>
 </html>

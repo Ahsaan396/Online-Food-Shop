@@ -63,24 +63,31 @@ class HomeController extends Controller
     {
         return view('msg');
     }
+
     public function review($id)
     {
+        $data = DB::table('review')->join('users', 'review.uid', 'users.id')->select('users.name', 'review.review')->where('review.pid', $id)->get();
+
+        // return view('review', ['data' => $data]);
        
         $get_review=DB::table('menu')->where('id',$id)->select('product_name')->get();
         
-        return view('review',['data'=>$get_review]);
+        return view('review',['gdata'=>$get_review, 'id'=>$id, 'data' => $data]);
     }
-    public function storeReview(Request $request)
-    {
-        // $this->validate($request,[
-        //     'review'=>'required'
-        // ]);
-        $post=new review;
-        $post->review=$request->input('review');
-        $post->save();
-        return redirect('/menu')->with('success','Review Submitted');
-        //return 123;
+
+
+    public function storeReview(Request $request, $id){
+
+        $data = DB::table('review')->insert([
+            'uid'=>auth()->user()->id,
+            'pid' => $id,
+            'review'=>$request->txt
+        ]);
+
+        return redirect( url()->previous());
+
     }
+
 
     /**
      * Store a newly created resource in storage.

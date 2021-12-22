@@ -82,16 +82,18 @@
 		  <p>
 		  <button class="btn btn-success" onclick="addQty({{ $item->id }},{{ json_encode($item) }})">+</button>
 		  <span style="color:white" id="qty{{ $item->id }}"> 0 </span>
-		  <button class="btn btn-warning"><a style="color:black" href={{route('review',$item->id)}}">Review</a></button>
+		  <button class="btn btn-warning"><a style="color:black" href="{{route('review',$item->id)}}">Review</a></button>
 		  <button class="btn btn-danger" onclick="deductQty({{ $item->id }},{{ json_encode($item) }})">-</button>
 		  
 		  </p>
 		  @else 
 		  <p>
-		  <button class="btn btn-primary" onclick="msg()">+</button>
-		  <span style="color:white" id="qty{{ $item->id }}"> 0 </span>
-		  <button class="btn btn-primary" onclick="msg()">-</button>
-		  </p>
+			<button class="btn btn-success"onclick="msg()">+</button>
+			<span style="color:white" id="qty{{ $item->id }}"> 0 </span>
+			<button class="btn btn-warning"><a style="color:black" href="{{route('review',$item->id)}}">Review</a></button>
+			<button class="btn btn-danger" onclick="msg()">-</button>
+			
+			</p>
 			  
 		  @endif
 

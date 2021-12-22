@@ -31,7 +31,9 @@ Route::get('/contact',[HomeController::class,'contact'])->name('contact');
 Route::get('/about',[HomeController::class,'about'])->name('about');
 Route::get('/msg',[HomeController::class,'msg'])->name('msg');
 Route::get('/review/{id}',[HomeController::class,'review'])->name('review');
-Route::post('/storeReview',[HomeController::class,'storeReview'])->name('storeReview');
+Route::post('/storeReview/{id}',[HomeController::class,'storeReview'])->name('storeReview');
+// Route::get('/review/{id}',[HomeController::class,'getReview'])->name('getReview');
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
