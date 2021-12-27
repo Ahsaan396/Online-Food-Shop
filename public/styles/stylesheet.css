@@ -200,3 +200,57 @@ h2 {
   color: white;
   padding-left: 10px;
 }
+
+
+form.example input[type=text] {
+  padding: 10px;
+  font-size: 17px;
+  border: 1px solid grey;
+  border-radius: 15px;
+  margin-top: 40px;
+  margin-left: 7%;
+  float: left;
+  width: 30%;
+  background: #f1f1f1;
+}
+
+form.example button {
+  float: left;
+  width: 10%;
+  padding: 12px;
+  background: #2196F3;
+  color: white;
+  font-size: 17px;
+  border: 1px solid grey;
+  margin-left: 12px;
+  margin-top: 41px;
+  border-left: none;
+  cursor: pointer;
+}
+
+form.example button:hover {
+  background: #0b7dda;
+}
+
+form.example::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+form.example button.placeOrder {
+  float: left;
+  width: 10%;
+  padding: 10px;
+  background: #21f328;
+  color: black !important;
+  font-size: 15px;
+  border: 1px solid grey;
+  margin-left: 470px;
+  margin-top: 41px;
+  border-left: none;
+  cursor: pointer;
+}
+form.example button.placeOrder :hover {
+  color: black;
+  cursor: pointer;
+}

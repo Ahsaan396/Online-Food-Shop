@@ -24,10 +24,19 @@ class HomeController extends Controller
      * @return \Illuminate\Http\Response
      */
     
-    public function menu(){
-        $data = DB::table('menu')->get();
+    public function menu(Request $request){
+        $search=$request['search']?? "";
+        if($search != "")
+        {
+            $data1=DB::table('menu')->where('product_name','LIKE',"%$search%")->get();
+        }
+        else{
+        $data1 = DB::table('menu')->get();
+        }
+        $data=compact('data1','search');
 
-        return view('menu', ['data' => $data]);
+        return view('menu')->with($data);
+        // return view('menu', ['data' => $data]);
     }
     
     public function user_profile()

@@ -4,7 +4,7 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
@@ -62,16 +62,23 @@
 	  </div>
 	</div>
     </nav>
-	@if(Auth::check())
-<button type="button" class="btn btn-success"><a href="{{route('order')}}">Place Order</a></button>
+	<form class="example" action="">
+  <input type="search" placeholder="Search.." name="search" value="{{$search}}">
+  <button type="submit">Serach</i></button>
+  <a href="{{url('menu')}}">
+  <button type="button" class="btn btn-primary">Reset</button>
+	</a>
+  @if(Auth::check())
+<button type="button" class="placeOrder"><a href="{{route('order')}}">Place Order</a></button>
 @else 
 <button type="button" class="btn btn-success" onclick="msg()">Place Order</button>
-
 @endif
+</form>
+	
 <div class="container my-5">
 	<div class="row">
 
-	@foreach ($data as $key => $item)
+	@foreach ($data1 as $key => $item)
 	<div class="col-md-4 my-2">
 	<div class="card" style="width: 18rem;">
 		<img src={{$item->picture}} class="card-img-top" alt="...">
