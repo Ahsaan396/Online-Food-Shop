@@ -29,3 +29,56 @@ button {
   color: red;
   margin: 10px 20px 0 0;
 }
+
+
+
+
+
+
+/* Mystyle */
+  form.sbar input[type=text] {
+
+  margin-top:15px;
+  padding: 10px;
+  font-size: 17px;
+  border: 1px solid grey;
+  width: 40%;
+  background: #f1f1f1;
+  border-radius: 5px;
+  margin-left: 23%;
+}
+
+form.sbar button {
+  margin-top:18px;
+  width: 8%;
+  padding: 10px;
+  background: #2196F3;
+  color: white;
+  font-size: 11px;
+  border: 1px solid grey;
+  border-left: none;
+  cursor: pointer;
+}
+
+
+form.sbar button:hover {
+  background: #0b7dda;
+}
+
+form.sbar::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+
+
+
+
+
+
+
+
+
+
+

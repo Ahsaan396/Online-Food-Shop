@@ -62,10 +62,35 @@
 	  </div>
 	</div>
     </nav>
-	<form class="example" action="">
-  <input type="search" placeholder="Search.." name="search" value="{{$search}}">
-  <button type="submit">Serach</i></button>
-  <a href="{{url('menu')}}">
+
+{{-- this si mydesign --}}
+
+
+	   <div class="container">	
+	     <form class="sbar" action="">
+		  <input type="text" placeholder="Search.." name="search" value="{{$search}}">
+		  <a href="{{url('menu')}}">
+				<button type="button" style="background-color: maroon">Reset</button>
+			</a>
+          <button type="submit" style="background-color: orange"><i class="fa fa-search" ></i>Search</button>
+			
+			 @if(Auth::check())
+				<button type="button" class="placeOrder" style="background-color: black"><a href="{{route('order')}}">Place Order</a></button>
+				@else 
+				<button type="button" class="btn btn-success" onclick="msg()">Place Order</button>
+				@endif
+   	     </form>
+	  </div>
+
+
+
+{{-- this si mydesign --}}
+
+
+{{-- <form class="example" action=""> --}}
+  {{-- <input type="search" placeholder="Search.." name="search" value="{{$search}}"> --}}
+  {{-- <button type="submit">Serach</i></button> --}}
+  {{-- <a href="{{url('menu')}}">
   <button type="button" class="btn btn-primary">Reset</button>
 	</a>
   @if(Auth::check())
@@ -73,7 +98,7 @@
 @else 
 <button type="button" class="btn btn-success" onclick="msg()">Place Order</button>
 @endif
-</form>
+</form> --}}
 	
 <div class="container my-5">
 	<div class="row">

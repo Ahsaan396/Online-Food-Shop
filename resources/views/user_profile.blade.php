@@ -48,8 +48,8 @@
 					<tr>
 						<td> 
 							<br>
-							<a href="{{route('delete')}}"><button type="submit"  onclick="return confirm('Are you sure you want to delete your profile?')">Delete Profile</button></a>
-							<a href="{{route('update_user_profile')}}"><button type="Update">Update Profile</button></a>
+							{{-- <a href="{{route('delete')}}"><button type="submit"  onclick="return confirm('Are you sure you want to delete your profile?')">Delete Profile</button></a> --}}
+							{{-- <a href="{{route('update_user_profile')}}"><button type="Update">Update Profile</button></a> --}}
 						</td>
 					</tr>
 				</table>
